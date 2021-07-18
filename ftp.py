@@ -1,14 +1,26 @@
 from ftplib import FTP
-print('This is FTP')
+from getpass import getpass)
 
 def terminal() :
-    line = input("$")
 
-def split_n_print(the_string):
-	args = the_string.split(' ')
-	print args
+    print('Please enter login info for ftp')
+    user = input('Enter User ')
+    print('Enter Password ')
+    password = getpass()
+    host = input('Enter Host ')
+
+    FTP.connect(host, port=0, None, None)
+
+    FTP.login(user, password, host)
+    line = input('$')
+    while line != "logout" :
+        #execute commands 
 
 
-z = 'the dog ran quickly'
 
-split_n_print(z)
+
+
+
+
+
+terminal()
