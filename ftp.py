@@ -3,9 +3,12 @@ print('This is FTP')
 
 def terminal() :
     line = input("$")
-    while line != "logout":
-    # some more inputs for the FTP server
-        line = input("$")
+
+def split_n_print(the_string):
+	args = the_string.split(' ')
+	print args
 
 
-terminal()
+z = 'the dog ran quickly'
+
+split_n_print(z)
