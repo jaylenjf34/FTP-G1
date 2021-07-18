@@ -1,4 +1,4 @@
-from ftplib import FTP
+import ftplib
 from getpass import getpass
 
 def terminal() :
@@ -8,8 +8,9 @@ def terminal() :
     print('Enter Password ')
     password = getpass()
     host = input('Enter Host ')
-    FTP.login(user, password, host)
-    line = input('$')
 
+    print(password)
+    ftp = ftplib.FTP.login(user, host, password)
+    line = input('$')
 
 terminal()
