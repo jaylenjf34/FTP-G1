@@ -1,11 +1,16 @@
-from ftplib import FTP
-print('This is FTP')
+import ftplib
+from getpass import getpass
 
 def terminal() :
-    line = input("$")
-    while line != "logout":
-    # some more inputs for the FTP server
-        line = input("$")
 
+    print('Please enter login info for ftp')
+    user = input('Enter User ')
+    print('Enter Password ')
+    password = getpass()
+    host = input('Enter Host ')
+
+    print(password)
+    ftp = ftplib.FTP.login(user, host, password)
+    line = input('$')
 
 terminal()
