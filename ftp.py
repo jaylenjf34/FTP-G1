@@ -10,7 +10,6 @@ def terminal() :
     host_in = input('Enter Host ')
     ftp = ftplib.FTP(host_in)
     ftp.login(user_in, password_in)
-    ftp.pwd()
     line = input('$')
 
 
