@@ -2,10 +2,10 @@ import pysftp
 import getpass
 
 def switch_statment (conn, arg):
-    if(arg == 'ls'):
+    args = arg.split()
+    if(args[0] == 'ls'):
         my_ls = conn.listdir()
         print(my_ls)
-
 
 def main():
     SFPT_URL = 'linux.cs.pdx.edu'
@@ -15,9 +15,11 @@ def main():
     sftp = pysftp.Connection(SFTP_NET, username=SFPT_USER, password=SFPT_PSWD)
     print('Attepting connection to ' + SFPT_URL + '...')
     while True:
-        line = input('$')
-        switch_statment(sftp, line)
+        line = input('$ ')
+        if(line != 'logout'):
+            switch_statment(sftp, line)
         if(line == 'logout'):
+            sftp.close()
             break;
 
 
