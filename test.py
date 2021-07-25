@@ -7,7 +7,15 @@ def switch_statment (conn, arg):
         my_ls = conn.listdir()
         print(my_ls)
     elif(args[0] == "mkdir"):
-        conn.mkdir(args[1])
+        try:
+            conn.mkdir(args[1])
+        except:
+            print("Directory already exists or not specified")
+    elif(args[0] == 'rmdir'):
+        try:
+            conn.rmdir(args[1])
+        except: 
+            print("Directory not found")
 
     
 
