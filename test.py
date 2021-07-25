@@ -14,10 +14,23 @@ def switch_statment (conn, arg):
     elif(args[0] == 'rmdir'):
         try:
             conn.rmdir(args[1])
-        except: 
+        except:
             print("Directory not found")
-
-    
+    elif(args[0] == 'pwd'):
+        my_pwd = conn.pwd
+        print(my_pwd)
+    elif(args[0] == 'cd'):
+        try:
+            if(args[1] == '..'):
+                path = conn.pwd()
+                my_path = conn.path_retreat(path)
+                my_cd = conn.cwd(my_path[1])
+                print("HELP")
+            else:
+                my_cd = conn.cwd(args[1])
+            print(args[1])
+        except:
+            print("Directory not found")
 
 def main():
     SFPT_URL = 'linux.cs.pdx.edu'
