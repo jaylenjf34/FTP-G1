@@ -31,6 +31,9 @@ def switch_statment (conn, arg):
             print(args[1])
         except:
             print("Directory not found")
+    
+    else:
+        print("Command not found")
 
 def main():
     SFPT_URL = 'linux.cs.pdx.edu'
