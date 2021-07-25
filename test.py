@@ -16,8 +16,10 @@ def main():
     print('Attepting connection to ' + SFPT_URL + '...')
     while True:
         line = input('$')
-        switch_statment(sftp, line)
+        if(line != 'logout'):
+            switch_statment(sftp, line)
         if(line == 'logout'):
+            sftp.close()
             break;
 
 
