@@ -6,6 +6,10 @@ def switch_statment (conn, arg):
     if(args[0] == 'ls'):
         my_ls = conn.listdir()
         print(my_ls)
+    elif(args[0] == "mkdir"):
+        conn.mkdir(args[1])
+
+    
 
 def main():
     SFPT_URL = 'linux.cs.pdx.edu'
