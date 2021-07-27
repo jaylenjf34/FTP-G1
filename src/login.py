@@ -1,6 +1,7 @@
 import pysftp
 import getpass
 import sys
+from termcolor import colored
 
 
 def login():
@@ -20,7 +21,16 @@ def login():
     try:
         sftp = pysftp.Connection(
             SFTP_NET, username=SFTP_USER, password=SFTP_PSWD)
+
         print("Connection successful!")
+        welcome = colored('Slightly Worse SFTP Application',
+                          'cyan', attrs=['blink'])
+        print("")
+        print("*** Welcome to ", end="")
+        print(colored(welcome), end="")
+        print("! ***")
+        print("")
+
         return sftp
 
     except pysftp.AuthenticationException:

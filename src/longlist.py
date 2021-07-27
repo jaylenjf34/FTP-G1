@@ -1,5 +1,6 @@
 import pysftp
 import os
+from termcolor import colored
 
 
 def format_dir(dir):
@@ -21,27 +22,28 @@ def print_formatted(dir):
         else:
             direct.append(item)
 
+    print("")
     print("=== Directories ===")
 
     for direc in direct:
-        print(direc)
+        print(colored(direc, 'blue'))
 
     print("==================")
     print("")
     print("===== Files ======")
 
     for file in files:
-        print(file)
+        print(colored(file, 'magenta'))
 
-    print("=================")
+    print("==================")
 
     # for directory in direct:
     #    print(directory)
 
 
 def ls(conn, args):
-    if not args:
-        print_formatted(format_dir(conn.listdir(remotepath='.')))
-
-    else:
+    dir = '.'
+    if args:
         dir = args[0]
+
+    print_formatted(format_dir(conn.listdir(remotepath=dir)))
