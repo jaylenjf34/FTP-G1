@@ -1,6 +1,7 @@
 import pysftp
 import getpass
 from longlist import ls
+from login import login
 
 
 def switch_statment(conn, arg):
@@ -41,12 +42,7 @@ def switch_statment(conn, arg):
 
 
 def main():
-    SFTP_NET = input('Please enter host: ')
-    SFPT_USER = input('Please enter your username: ')
-    SFPT_PSWD = getpass.getpass()
-
-    sftp = pysftp.Connection(SFTP_NET, username=SFPT_USER, password=SFPT_PSWD)
-    #print('Attempting connection to ' + SFPT_NET + '...')
+    sftp = login()
 
     while True:
         line = input('$ ')
