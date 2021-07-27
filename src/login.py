@@ -11,7 +11,7 @@ def login():
 
     SFTP_NET = 'linux.cs.pdx.edu'
     SFTP_USER = 'keca2'
-    SFTP_PSWD = ''
+    #SFTP_PSWD = ''
 
     print("")
     print('Attempting connection to ' + colored(SFTP_NET, 'blue') +
