@@ -9,8 +9,8 @@ def login():
     SFTP_USER = input('Please enter your username: ')
     SFTP_PSWD = getpass.getpass()
 
-    SFTP_NET = 'linux.cs.pdx.edu'
-    SFTP_USER = 'keca2'
+    #SFTP_NET = 'linux.cs.pdx.edu'
+    #SFTP_USER = 'keca2'
     #SFTP_PSWD = ''
 
     print("")

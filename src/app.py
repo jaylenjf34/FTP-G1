@@ -3,6 +3,7 @@ import getpass
 from longlist import ls
 from login import login
 from changedir import cd
+from cwd import cwd
 
 
 def switch_statment(conn, arg):
@@ -26,7 +27,6 @@ def switch_statment(conn, arg):
         cwd(conn)
     elif(cmd == 'cd'):
         cd(conn, args)
-
     else:
         print("Command not found")
 
