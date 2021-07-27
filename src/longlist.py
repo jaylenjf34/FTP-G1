@@ -1,6 +1,7 @@
 import pysftp
 import os
 from termcolor import colored
+from cwd import cwd
 
 
 def format_dir(dir):
@@ -28,14 +29,14 @@ def print_formatted(dir):
     for direc in direct:
         print(colored(direc, 'blue'))
 
-    print("==================")
+    print("===================")
     print("")
-    print("===== Files ======")
+    print("====== Files ======")
 
     for file in files:
         print(colored(file, 'magenta'))
 
-    print("==================")
+    print("===================")
 
     # for directory in direct:
     #    print(directory)

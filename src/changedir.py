@@ -1,6 +1,7 @@
 import pysftp
-#import paramiko
+# import paramiko
 from cwd import cwd
+from termcolor import colored
 
 
 def cd(conn, args):
@@ -14,6 +15,9 @@ def cd(conn, args):
     else:
         try:
             conn.chdir(path)
+            print(colored('Moved to -> ', 'green'), end='')
+            cwd(conn)
+
         except FileNotFoundError:
             print("No such directory located in current path.")
 

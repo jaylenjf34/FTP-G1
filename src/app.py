@@ -4,6 +4,11 @@ from longlist import ls
 from login import login
 from changedir import cd
 from cwd import cwd
+from mkdir import mkdir
+from rmdir import rmdir
+from rename import rename
+from rm import rm
+from logout import logout
 
 
 def switch_statment(conn, arg):
@@ -14,21 +19,21 @@ def switch_statment(conn, arg):
     if(cmd == 'ls'):
         ls(conn, args)
     elif(cmd == "mkdir"):
-        try:
-            conn.mkdir(args[0])
-        except:
-            print("Directory already exists or not specified")
+        mkdir(conn, args)
     elif(cmd == 'rmdir'):
-        try:
-            conn.rmdir(args[0])
-        except:
-            print("Directory not found")
+        rmdir(conn, args)
     elif(cmd == 'pwd' or cmd == 'cwd'):
         cwd(conn)
     elif(cmd == 'cd'):
         cd(conn, args)
+    elif(cmd == 'rename'):
+        rename(conn, args)
+    elif(cmd == 'rm'):
+        rm(conn, args)
+    elif cmd == 'q' or cmd == 'logout' or cmd == 'exit':
+        logout(conn)
     else:
-        print("Command not found")
+        print("Command not found.")
 
 
 def main():
