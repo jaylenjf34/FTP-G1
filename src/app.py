@@ -2,6 +2,7 @@ import pysftp
 import getpass
 from longlist import ls
 from login import login
+from changedir import cd
 
 
 def switch_statment(conn, arg):
@@ -13,29 +14,18 @@ def switch_statment(conn, arg):
         ls(conn, args)
     elif(cmd == "mkdir"):
         try:
-            conn.mkdir(args[1])
+            conn.mkdir(args[0])
         except:
             print("Directory already exists or not specified")
     elif(cmd == 'rmdir'):
         try:
-            conn.rmdir(args[1])
+            conn.rmdir(args[0])
         except:
             print("Directory not found")
-    elif(cmd == 'pwd'):
-        my_pwd = conn.pwd
-        print(my_pwd)
+    elif(cmd == 'pwd' or cmd == 'cwd'):
+        cwd(conn)
     elif(cmd == 'cd'):
-        try:
-            if(args[1] == '..'):
-                path = conn.pwd()
-                my_path = conn.path_retreat(path)
-                my_cd = conn.cwd(my_path[1])
-                print("HELP")
-            else:
-                my_cd = conn.cwd(args[1])
-            print(args[1])
-        except:
-            print("Directory not found")
+        cd(conn, args)
 
     else:
         print("Command not found")

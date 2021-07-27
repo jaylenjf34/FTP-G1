@@ -9,13 +9,13 @@ def login():
     SFTP_USER = input('Please enter your username: ')
     SFTP_PSWD = getpass.getpass()
 
-    #SFTP_NET = 'linux.cs.pdx.edu'
-    #SFTP_USER = 'keca2'
-    #SFTP_PSWD = ''
+    SFTP_NET = 'linux.cs.pdx.edu'
+    SFTP_USER = 'keca2'
+    SFTP_PSWD = ''
 
     print("")
-    print('Attempting connection to ' + SFTP_NET +
-          ' with user ' + SFTP_USER + '...')
+    print('Attempting connection to ' + colored(SFTP_NET, 'blue') +
+          ' with user ' + colored(SFTP_USER, 'green') + '...')
     print("")
 
     try:
@@ -24,7 +24,7 @@ def login():
 
         print("Connection successful!")
         welcome = colored('Slightly Worse SFTP Application',
-                          'cyan', attrs=['blink'])
+                          'cyan', attrs=['blink', 'bold'])
         print("")
         print("*** Welcome to ", end="")
         print(colored(welcome), end="")
@@ -34,11 +34,13 @@ def login():
         return sftp
 
     except pysftp.AuthenticationException:
-        print("Username " + SFTP_USER + " could not be authenticated. Exiting.")
+        print("Username " + colored(SFTP_USER, 'red') +
+              " could not be authenticated. Exiting.")
         sys.exit()
 
     except pysftp.SSHException:
-        print("Host: " + SFTP_NET + " could not be validated. Exiting.")
+        print("Host: " + colored(SFTP_NET, 'red') +
+              " could not be validated. Exiting.")
         sys.exit()
 
     else:
