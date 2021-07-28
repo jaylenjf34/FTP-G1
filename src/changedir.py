@@ -6,6 +6,12 @@ from termcolor import colored
 
 def cd(conn, args):
 
+    arg_count = len(args)
+
+    if (arg_count == 0):
+        print("Need directory to change into")
+        return
+ 
     path = args[0]
 
     if(path == '..'):
