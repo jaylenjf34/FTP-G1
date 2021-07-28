@@ -1,7 +1,7 @@
 import pysftp
 import os
 from termcolor import colored
-from cwd import cwd
+from .cwd import cwd
 
 
 def format_dir(dir):
