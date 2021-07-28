@@ -7,13 +7,13 @@ import datetime
 
 
 def login():
-    #SFTP_NET = input('Please enter the hostname: ')
-    #SFTP_USER = input('Please enter your username: ')
-    #SFTP_PSWD = getpass.getpass()
+    SFTP_NET = input('Please enter the hostname: ')
+    SFTP_USER = input('Please enter your username: ')
+    SFTP_PSWD = getpass.getpass()
 
-    SFTP_NET = 'linux.cs.pdx.edu'
-    SFTP_USER = 'keca2'
-    SFTP_PSWD = 'Asd45620!'
+    #SFTP_NET = 'linux.cs.pdx.edu'
+    #SFTP_USER = 'keca2'
+    #SFTP_PSWD = ''
 
     print("")
     print('Attempting connection to ' + colored(SFTP_NET, 'blue') +
