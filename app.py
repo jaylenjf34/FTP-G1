@@ -1,14 +1,7 @@
 import pysftp
 import getpass
-from longlist import ls
-from login import login
-from changedir import cd
-from cwd import cwd
-from mkdir import mkdir
-from rmdir import rmdir
-from rename import rename
-from rm import rm
-from logout import logout
+from src import *
+from log import log
 
 
 def switch_statment(conn, arg):
@@ -41,11 +34,8 @@ def main():
 
     while True:
         line = input('$ ')
-        if(line != 'logout' or line != 'q'):
-            switch_statment(sftp, line)
-        if(line == 'logout' or line == 'q'):
-            sftp.close()
-            break
+        log(line)
+        switch_statment(sftp, line)
 
 
 if __name__ == "__main__":
