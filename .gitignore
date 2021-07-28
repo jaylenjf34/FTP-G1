@@ -1,1 +1,4 @@
-*__pyache__/*
+__pyache__/*
+src/__pycache__/*
+*.pyc
+logfile.txt

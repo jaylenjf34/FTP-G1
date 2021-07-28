@@ -1,6 +1,7 @@
 import pysftp
 import getpass
 from src import *
+from log import log
 
 
 def switch_statment(conn, arg):
@@ -33,6 +34,7 @@ def main():
 
     while True:
         line = input('$ ')
+        log(line)
         switch_statment(sftp, line)
 
 
