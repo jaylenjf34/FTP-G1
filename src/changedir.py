@@ -1,6 +1,6 @@
 import pysftp
 # import paramiko
-from cwd import cwd
+from src.cwd import cwd
 from termcolor import colored
 
 

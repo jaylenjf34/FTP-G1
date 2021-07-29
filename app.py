@@ -23,6 +23,10 @@ def switch_statment(conn, arg):
         rename(conn, args)
     elif(cmd == 'rm'):
         rm(conn, args)
+    elif(cmd == 'put' and args_len < 2):
+        put(conn, args)
+    elif(cmd == 'put' and args_len >= 2):
+        put_mutiple(conn, args)
     elif cmd == 'q' or cmd == 'logout' or cmd == 'exit':
         logout(conn)
     else:

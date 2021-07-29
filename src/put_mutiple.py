@@ -1,5 +1,6 @@
 import pysftp
-from put import put
+from src.put import put
+
 
 def put_mutiple(conn, arg):
     for i in arg:
