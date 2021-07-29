@@ -1,6 +1,6 @@
 import pysftp
 # import paramiko
-from src.cwd import cwd
+from cwd import cwd
 from termcolor import colored
 
 
@@ -11,7 +11,7 @@ def cd(conn, args):
     if (arg_count == 0):
         print("Need directory to change into")
         return
- 
+
     path = args[0]
 
     if(path == '..'):
