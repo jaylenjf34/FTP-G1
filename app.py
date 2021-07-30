@@ -32,6 +32,8 @@ def switch_statment(conn, arg):
         put_mutiple(conn, args)
     elif(cmd == 'get'):
         get(conn, args)
+    elif(cmd == 'getm'):
+        get_multiple(conn, args)
     elif cmd == 'q' or cmd == 'logout' or cmd == 'exit':
         logout(conn)
     else:
