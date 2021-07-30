@@ -2,12 +2,15 @@ import pysftp
 import getpass
 from src import *
 from log import log
+import os
 
 
 def switch_statment(conn, arg):
     args = arg.split()
     cmd = args[0]
     args.pop(0)
+    args_len = len(args)
+    
 
     if(cmd == 'ls'):
         ls(conn, args)
@@ -27,6 +30,8 @@ def switch_statment(conn, arg):
         put(conn, args)
     elif(cmd == 'put' and args_len >= 2):
         put_mutiple(conn, args)
+    elif(cmd == 'get'):
+        get(conn, args)
     elif cmd == 'q' or cmd == 'logout' or cmd == 'exit':
         logout(conn)
     else:

@@ -9,3 +9,4 @@ from .rm import *
 from .logout import *
 from .put import *
 from .put_mutiple import *
+from .get import *
