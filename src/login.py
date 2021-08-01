@@ -1,7 +1,9 @@
 import pysftp
 import getpass
 import sys
+import os
 from termcolor import colored
+import datetime
 
 
 def login():
@@ -19,6 +21,12 @@ def login():
     print("")
 
     try:
+        log = open(os.path.expanduser('logfile.txt'), 'a')
+        log.write('User ' + SFTP_USER + ' logged in at: ' +
+                  datetime.datetime.now().strftime("%m-%d-%y %H:%M:%S") + '\n')
+        log.write('********************************************\n')
+        log.close()
+
         sftp = pysftp.Connection(
             SFTP_NET, username=SFTP_USER, password=SFTP_PSWD)
 
