@@ -34,8 +34,12 @@ def switch_statment(conn, arg):
         get(conn, args)
     elif(cmd == 'getm'):
         get_multiple(conn, args)
-    elif cmd == 'q' or cmd == 'logout' or cmd == 'exit':
+    elif(cmd == 'q' or cmd == 'logout' or cmd == 'exit'):
         logout(conn)
+    elif(cmd == 'lls'):
+        lls()
+    elif(cmd == 'lpwd'):
+        lpwd()
     else:
         print("Command not found.")
 
