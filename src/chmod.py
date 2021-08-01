@@ -2,7 +2,7 @@ import pysftp
 
 def chmod(conn, arg):
 
-  if length(arg) < 2:
+  if len(arg) < 2:
     print("must include file name and permission mask in octal: ex. 644")
     return
 
