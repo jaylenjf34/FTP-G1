@@ -14,3 +14,4 @@ from .get_multiple import *
 from .chmod import *
 from .lls import *
 from .lpwd import *
+from .lrename import *
