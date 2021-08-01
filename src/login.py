@@ -4,10 +4,22 @@ import sys
 import os
 from termcolor import colored
 import datetime
+from save_connection import save_connect
+from retrieve_connect import retrieve_connect
 
 
 def login():
-    SFTP_NET = input('Please enter the hostname: ')
+    # added for save Connection
+    print('Do you want to connect to last host?')
+    ans = input('Y/N ')
+
+    if ans == 'N' or ans == 'n':
+        SFTP_NET = input('Please enter the hostname: ')
+        save_connect(SFTP_NET)
+
+    else:
+        SFTP_NET = retrieve_connect()
+
     SFTP_USER = input('Please enter your username: ')
     SFTP_PSWD = getpass.getpass()
 
