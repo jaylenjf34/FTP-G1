@@ -1,11 +1,12 @@
 import pysftp
-from src.put import put
+import os
 
 
 def put_mutiple(conn, arg):
     for i in arg:
         try:
-            put(conn, i)
+            local_file = os.getcwd() + '/' + i
+            conn.put(local_file)
 
         except:
             print('Error putting mutiple files onto remote')

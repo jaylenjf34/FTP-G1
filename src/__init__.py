@@ -12,3 +12,5 @@ from .put_mutiple import *
 from .get import *
 from .get_multiple import *
 from .chmod import *
+from .lls import *
+from .lpwd import *
