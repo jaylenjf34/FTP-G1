@@ -43,7 +43,7 @@ def switch_statment(conn, arg):
     elif(cmd == 'lpwd'):
         lpwd()
     elif(cmd == 'lrename'):
-        lrename()
+        lrename(args)
     else:
         print("Command not found.")
 
