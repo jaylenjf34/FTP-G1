@@ -11,3 +11,4 @@ from .put import *
 from .put_mutiple import *
 from .get import *
 from .get_multiple import *
+from .chmod import *
