@@ -10,7 +10,7 @@ def switch_statment(conn, arg):
     cmd = args[0]
     args.pop(0)
     args_len = len(args)
-    
+
 
     if(cmd == 'ls'):
         ls(conn, args)
@@ -22,6 +22,8 @@ def switch_statment(conn, arg):
         cwd(conn)
     elif(cmd == 'cd'):
         cd(conn, args)
+    elif(cmd == 'chmod'):
+        chmod(conn, args)
     elif(cmd == 'rename'):
         rename(conn, args)
     elif(cmd == 'rm'):
