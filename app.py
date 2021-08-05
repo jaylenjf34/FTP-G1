@@ -24,6 +24,8 @@ def switch_statment(conn, arg):
         cwd(conn)
     elif(cmd == 'cd'):
         cd(conn, args)
+    elif(cmd == 'chmod'):
+        chmod(conn, args)
     elif(cmd == 'rename'):
         rename(conn, args)
     elif(cmd == 'rm'):
@@ -36,8 +38,14 @@ def switch_statment(conn, arg):
         get(conn, args)
     elif(cmd == 'getm'):
         get_multiple(conn, args)
-    elif cmd == 'q' or cmd == 'logout' or cmd == 'exit':
+    elif(cmd == 'q' or cmd == 'logout' or cmd == 'exit'):
         logout(conn)
+    elif(cmd == 'lls'):
+        lls()
+    elif(cmd == 'lpwd'):
+        lpwd()
+    elif(cmd == 'lrename'):
+        lrename(args)
     else:
         print("Command not found.")
 

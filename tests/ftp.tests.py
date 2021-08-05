@@ -19,5 +19,11 @@ class TestStringMethods(unittest.TestCase):
     def test_shouldfail(self):
         self.assertEqual('true', 'false')
 
+    def test_save_connect(unittest.TestCase):
+        save_connect('linux.cs.pdx.edu')
+        my_connect = retrieve_connect()
+        self.assertEqual('linux.cs.pdx.edu', my_connect)
+
+
 if __name__ == '__main__':
     unittest.main()
