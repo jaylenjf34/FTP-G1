@@ -1,5 +1,6 @@
 import unittest
 
+
 class TestStringMethods(unittest.TestCase):
 
     def test_upper(self):
@@ -16,8 +17,6 @@ class TestStringMethods(unittest.TestCase):
         with self.assertRaises(TypeError):
             s.split(2)
 
-    def test_shouldfail(self):
-        self.assertEqual('true', 'false')
 
     def test_save_connect(unittest.TestCase):
         save_connect('linux.cs.pdx.edu')
