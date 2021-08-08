@@ -1,47 +1,76 @@
 import unittest
-import pysftp
 from src import *
-from unittest.mock import patch
-import mock
+import pysftp
+from os.path import exists
 
 
-@mock.patch.object(
-    target=pysftp,
-    attribute='Connection',
-    autospec=True,
-    return_value=mock.Mock(spec=pysftp.Connection)
-)
-class TestExamples(unittest.TestCase):
-    def test_get(self, mock_sftp_conn):
-        host = 'test.edu'
-        user = 'testuser'
-        password = 'p1a2s3s4w5o6r7d8'
-        file = 'test.txt'
+class TestFeatures(unittest.TestCase):
 
-        mock_sftp = pysftp.Connection(host, user, password)
-        mock_sftp.pwd = '/u/test/'
-        mock_sftp.get.return_value = file
 
-        self.assertEqual(get(mock_sftp, file), file)
-        mock_sftp.reset_mock()
+    def test_get(self):
+        print('Testing get')
+        SFTP_NET = 'test.rebex.net'
+        SFTP_USER = 'demo'
+        SFTP_PSWD = 'password'
+        sftp = pysftp.Connection(
+        SFTP_NET, username=SFTP_USER, password=SFTP_PSWD)
+        get(sftp,'readme.txt')
+        self.assertTrue(os.path.exists('r'))
+        os.remove('r')
 
-    def test_get_no_item_found(self, mock_sftp_conn):
-        host = 'test.edu'
-        user = 'testuser'
-        password = 'p1a2s3s4w5o6r7d8'
-        file = ''
+    def test_get_should_fail(self):
+        print('Testing get failure')
+        SFTP_NET = 'test.rebex.net'
+        SFTP_USER = 'demo'
+        SFTP_PSWD = 'password'
+        sftp = pysftp.Connection(
+        SFTP_NET, username=SFTP_USER, password=SFTP_PSWD)
+        self.assertEqual(-1, get(sftp,'cool.txt'))
+        os.remove('c')
 
-        mock_sftp = pysftp.Connection(host, user, password)
-        mock_sftp.pwd = '/u/test/'
+    def test_cwd(self):
+        print('Testing cwd')
+        SFTP_NET = 'test.rebex.net'
+        SFTP_USER = 'demo'
+        SFTP_PSWD = 'password'
+        sftp = pysftp.Connection(
+        SFTP_NET, username=SFTP_USER, password=SFTP_PSWD)
+        result = sftp.pwd
+        our_result = cwd(sftp)
+        self.assertTrue(result == our_result)
 
-        self.assertEqual(get(mock_sftp, file), 'test.txt',
-                         'Could not get the file.')
+    def test_rm_should_fail(self):
+        print('Testing rm')
+        SFTP_NET = 'test.rebex.net'
+        SFTP_USER = 'demo'
+        SFTP_PSWD = 'password'
+        sftp = pysftp.Connection(
+        SFTP_NET, username=SFTP_USER, password=SFTP_PSWD)
+        self.assertEqual(-1, rm(sftp,'cool.txt'))
 
-    def test_login(self, mock_sftp_conn):
-        host = 'test.edu'
-        user = 'testuser'
-        password = 'p1a2s3s4w5o6r7d8'
+    def test_rename_should_fail(self):
+        print('Testing rename')
+        SFTP_NET = 'test.rebex.net'
+        SFTP_USER = 'demo'
+        SFTP_PSWD = 'password'
+        sftp = pysftp.Connection(
+        SFTP_NET, username=SFTP_USER, password=SFTP_PSWD)
+        self.assertEqual(-1, rename(sftp,'cool.txt'))
 
-        mock_sftp = pysftp.Connection(host, user, password)
+    def test_remove_directory_should_fail(self):
+        print('Testing remove')
+        SFTP_NET = 'test.rebex.net'
+        SFTP_USER = 'demo'
+        SFTP_PSWD = 'password'
+        sftp = pysftp.Connection(
+        SFTP_NET, username=SFTP_USER, password=SFTP_PSWD)
+        self.assertEqual(-1, rmdir(sftp,'spazz'))
 
-        mock_sftp_conn.assert_called_with(host, user, password)
+    def test_put_should_fail(self):
+        print('Testing put')
+        SFTP_NET = 'test.rebex.net'
+        SFTP_USER = 'demo'
+        SFTP_PSWD = 'password'
+        sftp = pysftp.Connection(
+        SFTP_NET, username=SFTP_USER, password=SFTP_PSWD)
+        self.assertEqual(-1, put(sftp,'doxxed'))

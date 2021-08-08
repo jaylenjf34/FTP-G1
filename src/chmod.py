@@ -14,3 +14,4 @@ def chmod(conn, arg):
 
   except:
     print("Error changing mode (permissions) on "+ local_file + ".")
+    return -1
