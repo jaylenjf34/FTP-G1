@@ -10,3 +10,4 @@ def mkdir(conn, args):
 
     except:
         print("Directory already exists or not specified.")
+        return -1

@@ -15,3 +15,4 @@ def rmdir(conn, args):
 
     except:
         print("Directory not found.")
+        return -1
