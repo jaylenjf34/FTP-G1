@@ -15,3 +15,4 @@ def rm(conn, args):
 
     except:
         print("Error deleting the file.")
+        return -1

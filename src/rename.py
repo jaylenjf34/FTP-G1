@@ -17,3 +17,4 @@ def rename(conn, arg):
 
     except:
         print("Error renaming files.")
+        return -1

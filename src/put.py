@@ -11,3 +11,4 @@ def put(conn, arg):
 
     except:
         print('Could not put local file on remote')
+        return -1
