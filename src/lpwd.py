@@ -1,5 +1,5 @@
 import os
 
 def lpwd():
-    os.system('pwd')
+    res = os.system('pwd')
     return res
