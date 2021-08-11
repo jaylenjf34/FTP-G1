@@ -12,3 +12,4 @@ def get(conn, arg):
         return conn.get(remote_file)
     except:
         print('Could not get the file.')
+        return -1
